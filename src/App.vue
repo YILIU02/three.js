@@ -10,7 +10,8 @@ import * as THREE from 'three'
 const container = ref(null)
 // 声明Three.js相关变量
 let scene, camera, renderer, cube, animationId,axesHelper,controls
-
+const textureLoader = new THREE.TextureLoader();
+textureLoader.setCrossOrigin('anonymous');
 // 组件挂载生命周期钩子
 onMounted(() => {
   initThree()       // 初始化Three.js场景
@@ -27,6 +28,7 @@ onUnmounted(() => {
 
 // 初始化Three.js核心要素
 function initThree() {
+
   // 创建场景（所有3D对象的容器）
   scene = new THREE.Scene()
   
@@ -105,6 +107,7 @@ function setupResizeHandler() {
 <template>
   <!-- Three.js容器元素，通过ref绑定到container变量 -->
   <div ref="container" class="three-container"></div>
+  <div>111</div>
 </template>
 
 <style scoped>
